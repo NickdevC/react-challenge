@@ -12,6 +12,13 @@ export class Content extends Component {
          isLoaded: false
       }
     }
+    componentDidMount() {
+        setTimeout(()=>{
+            this.setState({
+                isLoaded: true,
+            })
+        }, 2000)
+    }
 
     render() {
         return (
@@ -20,7 +27,11 @@ export class Content extends Component {
                     <h1>My Photos</h1>
                 </div>
                 <div className={css.SearchResults}>
-                    <PostItem savedPosts={savedPosts} />
+                    {
+                        this.state.isLoaded ?
+                        <PostItem savedPosts={savedPosts} />
+                        : <Loader />
+                    }
                 </div>
             </div>
         )
