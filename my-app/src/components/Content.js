@@ -44,7 +44,7 @@ export class Content extends Component {
                             placeholder="By Author"
                             onChange={(event) => this.handleChange(event)}
                         />
-                        <h4>posts found {this.state.posts.length}</h4>
+                        <h4>posts found: {this.state.posts.length}</h4>
                     </form>
                 </div>
                 <div className={css.SearchResults}>
