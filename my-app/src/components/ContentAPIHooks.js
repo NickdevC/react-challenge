@@ -22,6 +22,15 @@ export default function ContentAPIHooks() {
         setPosts(fetchedPosts);
         setSavedPosts(fetchedPosts);
     }
+
+    const handleChange = (e) => {
+        const name = e.target.value.toLowerCase();
+        const filteredPosts = savedPosts.filter((post)=>{
+            return post.user.toLowerCase().includes(name);
+        })
+        
+        setPosts(filteredPosts);
+    }
   return (
     <div>ContentAPIHooks</div>
   )
