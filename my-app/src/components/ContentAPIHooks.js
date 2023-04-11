@@ -9,6 +9,10 @@ export default function ContentAPIHooks() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [posts, setPosts] = useState([]);
     const [savedPosts, setSavedPosts] = useState([]);
+
+    useEffect(() => {
+        fetchImages();
+    }, []);
   return (
     <div>ContentAPIHooks</div>
   )
