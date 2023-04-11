@@ -31,7 +31,30 @@ export default function ContentAPIHooks() {
         
         setPosts(filteredPosts);
     }
-  return (
-    <div>ContentAPIHooks</div>
-  )
+    return (
+        <div className={css.Content}>
+            <div className={css.TitleBar}>
+                <h1>My Photos</h1>
+                <form>
+                    <label htmlFor="searchInput">Search:</label>
+                    <input 
+                        type="search" 
+                        id="searchInput"
+                        placeholder="By Author"
+                        onChange={(event) => handleChange(event)}
+                    />
+                    <h4>posts found: {posts.length}</h4>
+                </form>
+            </div>
+            <div className={css.SearchResults}>
+                {
+                    isLoaded ?
+                    <PostItemAPI savedPosts={posts} />
+                    : <Loader />
+                }
+            </div>
+        </div>
+    )
 }
+
+
